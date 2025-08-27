@@ -175,7 +175,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="projectDesc" className="block text-sm font-medium text-slate-300">
-                        Project Link <span className="text-slate-400 text-xs"> (like this "https://example.com")</span>
+                        Project Link <span className="text-slate-400 text-xs"> (like this &quot;https://example.com&quot;)</span>
                       </label>
                       <textarea
                         id="projectDesc"
