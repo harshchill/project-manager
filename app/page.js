@@ -3,10 +3,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [project, setProject] = useState({
-    teammate1Name: "",
-    teammate1Id: "",
-    teammate2Name: "",
-    teammate2Id: "",
+    studentName: "",
+    studentId: "",
     projectName: "",
     projectDesc: "",
   });
@@ -84,11 +82,7 @@ export default function Home() {
                   <div className="space-y-3 text-left">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-slate-300"><span className="font-semibold text-white">Teammate 1:</span> {project.teammate1Name} <span className="text-purple-300">({project.teammate1Id})</span></span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-slate-300"><span className="font-semibold text-white">Teammate 2:</span> {project.teammate2Name} <span className="text-blue-300">({project.teammate2Id})</span></span>
+                      <span className="text-slate-300"><span className="font-semibold text-white">Student:</span> {project.studentName} <span className="text-purple-300">({project.studentId})</span></span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
@@ -111,24 +105,24 @@ export default function Home() {
                     {error}
                   </div>
                 )}
-                {/* Teammate 1 Section */}
+                {/* Student Section */}
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-purple-300 mb-4 flex items-center">
                     <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
-                      <span className="text-white font-bold">1</span>
+                      <span className="text-white font-bold">S</span>
                     </div>
-                    Teammate 1
+                    Student
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="teammate1Name" className="block text-sm font-medium text-slate-300">
+                      <label htmlFor="studentName" className="block text-sm font-medium text-slate-300">
                         Name
                       </label>
                       <input
                         type="text"
-                        id="teammate1Name"
-                        name="teammate1Name"
-                        value={project.teammate1Name}
+                        id="studentName"
+                        name="studentName"
+                        value={project.studentName}
                         onChange={handleChange}
                         required
                         placeholder="Enter teammate name"
@@ -136,60 +130,18 @@ export default function Home() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="teammate1Id" className="block text-sm font-medium text-slate-300">
+                      <label htmlFor="studentId" className="block text-sm font-medium text-slate-300">
                         ID
                       </label>
                       <input
                         type="text"
-                        id="teammate1Id"
-                        name="teammate1Id"
-                        value={project.teammate1Id}
+                        id="studentId"
+                        name="studentId"
+                        value={project.studentId}
                         onChange={handleChange}
                         required
                         placeholder="Enter teammate ID"
                         className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Teammate 2 Section */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-blue-300 mb-4 flex items-center">
-                    <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
-                      <span className="text-white font-bold">2</span>
-                    </div>
-                    Teammate 2
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="teammate2Name" className="block text-sm font-medium text-slate-300">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="teammate2Name"
-                        name="teammate2Name"
-                        value={project.teammate2Name}
-                        onChange={handleChange}
-                        required
-                        placeholder="Enter teammate name"
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="teammate2Id" className="block text-sm font-medium text-slate-300">
-                        ID
-                      </label>
-                      <input
-                        type="text"
-                        id="teammate2Id"
-                        name="teammate2Id"
-                        value={project.teammate2Id}
-                        onChange={handleChange}
-                        required
-                        placeholder="Enter teammate ID"
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                       />
                     </div>
                   </div>
@@ -223,14 +175,15 @@ export default function Home() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="projectDesc" className="block text-sm font-medium text-slate-300">
-                        Project Description <span className="text-slate-400 text-xs">(optional)</span>
+                        Project Link <span className="text-slate-400 text-xs"> (like this "https://example.com")</span>
                       </label>
                       <textarea
                         id="projectDesc"
                         name="projectDesc"
                         value={project.projectDesc}
                         onChange={handleChange}
-                        placeholder="Describe your amazing project..."
+                        required
+                        placeholder="Enter active link of your projects"
                         rows={4}
                         className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm resize-none"
                       />

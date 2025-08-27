@@ -6,19 +6,15 @@ async function getProjects() {
   await dbConnect();
   const docs = await Project.find({}, {
     projectName: 1,
-    teammate1Name: 1,
-    teammate1Id: 1,
-    teammate2Name: 1,
-    teammate2Id: 1,
+    studentName: 1,
+    studentId: 1,
     createdAt: 1,
   }).sort({ createdAt: 1 }).lean(); // oldest -> newest (latest at bottom)
   return docs.map((d) => ({
     _id: String(d._id),
     projectName: d.projectName,
-    teammate1Name: d.teammate1Name,
-    teammate1Id: d.teammate1Id,
-    teammate2Name: d.teammate2Name,
-    teammate2Id: d.teammate2Id,
+    studentName: d.studentName,
+    studentId: d.studentId,
     createdAt: d.createdAt?.toISOString?.() || '',
   }));
 }
@@ -74,17 +70,10 @@ export default async function Projects() {
                           <div className="mt-1 text-slate-300 text-xs sm:text-sm leading-relaxed">
                             <div className="flex flex-wrap gap-1.5 sm:gap-2">
                               <span className="inline-flex items-center gap-1">
-                                <span className="text-white font-medium">T1:</span>
-                                <span className="truncate max-w-[8rem] sm:max-w-[12rem]">{p.teammate1Name}</span>
+                                <span className="text-white font-medium">Student:</span>
+                                <span className="truncate max-w-[8rem] sm:max-w-[12rem]">{p.studentName}</span>
                                 <span className="px-1.5 py-0.5 rounded-md bg-purple-500/20 text-purple-200 font-mono text-[10px] sm:text-xs border border-purple-400/20">
-                                  {p.teammate1Id}
-                                </span>
-                              </span>
-                              <span className="inline-flex items-center gap-1">
-                                <span className="text-white font-medium">T2:</span>
-                                <span className="truncate max-w-[8rem] sm:max-w-[12rem]">{p.teammate2Name}</span>
-                                <span className="px-1.5 py-0.5 rounded-md bg-blue-500/20 text-blue-200 font-mono text-[10px] sm:text-xs border border-blue-400/20">
-                                  {p.teammate2Id}
+                                  {p.studentId}
                                 </span>
                               </span>
                             </div>

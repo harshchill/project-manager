@@ -3,21 +3,15 @@ import mongoose from 'mongoose';
 
 // Define the schema for the Project model
 const ProjectSchema = new mongoose.Schema({
-  teammate1Name: {
+  studentName: {
     type: String,
-    required: [true, 'Please provide the name of the first teammate.'],
+    required: [true, 'Please provide the student\'s name.'],
   },
-  teammate1Id: {
+  studentId: {
     type: String,
-    required: [true, 'Please provide the ID of the first teammate.'],
-  },
-  teammate2Name: {
-    type: String,
-    required: [true, 'Please provide the name of the second teammate.'],
-  },
-  teammate2Id: {
-    type: String,
-    required: [true, 'Please provide the ID of the second teammate.'],
+    required: [true, 'Please provide the student\'s ID.'],
+    unique: true,
+    index: true,
   },
   projectName: {
     type: String,
@@ -25,10 +19,9 @@ const ProjectSchema = new mongoose.Schema({
   },
   projectDesc: {
     type: String,
-    // This field is not required, so we just define the type.
+    required: [true, 'Please provide a project link.'],
   },
 }, {
-  // This option automatically adds createdAt and updatedAt fields
   timestamps: true,
 });
 
