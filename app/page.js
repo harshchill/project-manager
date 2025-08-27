@@ -18,6 +18,8 @@ export default function Home() {
     setProject({ ...project, [e.target.name]: e.target.value });
   };
 
+  console.log("This webapp is made by Harsh mahto")
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -263,7 +265,7 @@ export default function Home() {
           {/* Footer */}
           <div className="text-center mt-8">
             <p className="text-slate-400 text-sm">
-              Built with ❤️ for amazing projects
+              Built by ❤️ Mahto
             </p>
           </div>
         </div>
