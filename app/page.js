@@ -63,7 +63,7 @@ export default function Home() {
               Project Submission
             </h1>
             <p className="text-slate-300 text-lg md:text-xl max-w-md mx-auto">
-              Submit your project details and let's bring your ideas to life
+              Submit your project details and let&apos;s bring your ideas to life
             </p>
           </div>
 
